@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="AjaxMapper">
+
+	<insert id="insert" parameterType="board">
+		INSERT INTO board (name, title) VALUES (#{name}, #{title})
+	</insert>
+	
+	<select id="board_ajax_1" parameterType="int" resultType="board">
+		SELECT * FROM board WHERE idx = #{idx}
+	</select>
+	
+	<select id="get_list" parameterType="search_helper" resultType="board">
+		SELECT * FROM board LIMIT #{p1}, #{p2}
+	</select>
+</mapper>
